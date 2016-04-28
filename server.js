@@ -2,8 +2,9 @@
 var express    = require('express');
 var app        = express();
 var bodyParser = require('body-parser');
+var dbauth = require('./password');
 var mongoose   = require('mongoose');
-mongoose.connect('mongodb://@ds021681.mlab.com:21681/onboarding');
+mongoose.connect('mongodb://' + dbauth.dbuser + dbauth.dbpass + '@ds021681.mlab.com:21681/onboarding');
 var Ticket = require('./app/models/ticket.js');
 
 // configure app to use bodyParser()
